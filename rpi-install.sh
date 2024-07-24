@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 set -e
 
 [ $(id -u) = 0 ] && echo "Please do not run this script as root" && exit 100
@@ -12,14 +12,14 @@ git clone https://github.com/AlexandreRouma/SDRPlusPlus
 cd SDRPlusPlus            
 
 echo "Preparing build"
-sudo mkdir -p build
+mkdir -p build
 cd build
 
-sudo mkdir -p CMakeFiles
-sudo cmake .. -DOPT_BUILD_RTL_SDR_SOURCE=ON
+mkdir -p CMakeFiles
+cmake .. -DOPT_BUILD_RTL_SDR_SOURCE=ON
 
 echo "Building"
-sudo make
+make
 
 echo "Installing"
 sudo make install
